@@ -1,7 +1,39 @@
 import './Counter.css';
 import { useState } from 'react';
 import {PropTypes} from 'prop-types';
-export default function Counter ({by}) {
+
+export default function Counter() {
+    const [count, setCount ] = useState(0);
+
+    function incrementCounterParentFunction(by){
+        setCount(count+by);
+
+    }
+    function decrementCounterParentFunction(by){
+        setCount(count-by);
+
+    }
+   
+
+    return (
+        <>
+        <span className="totalCount">{count} </span>
+
+        <CounterButton by = {1} incrementCounterParentFunction={incrementCounterParentFunction} 
+                                decrementMethod = {decrementCounterParentFunction}/>
+        <CounterButton by = {2} incrementCounterParentFunction={incrementCounterParentFunction}
+                                decrementMethod = {decrementCounterParentFunction}/>
+        <CounterButton by = {5} incrementCounterParentFunction={incrementCounterParentFunction}
+                                decrementMethod = {decrementCounterParentFunction}/>
+
+                                
+        </>
+
+    )
+}
+
+ 
+ function CounterButton ({by,incrementCounterParentFunction,decrementMethod}) {
 
     //create javascript object for defining style
    /*const buttonStyle = {
@@ -21,30 +53,25 @@ const [count, setCount ] = useState(0);
 
  
         setCount(count + by);
-    }
+        incrementCounterParentFunction(by);
+        }
 
     function minusCounter() {
 
-        if(count<=0){
-            console.log("cannot be negative!");
+       
 
-           return(
-            <div className="ErrorAlert">
-                <div>Cannot be negative number!</div>
-            </div>
-           )
-        }
-        else{
+           
+        
             setCount(count - by);
+            decrementMethod(by);
 
 
-        }
+        
 
  
     }
     return (
         <div className="Counter">
-            <span className="count">{count} </span>
             <div>
                 <button className="counterButton" onClick={incrementCounter}
                 >+{by}</button>
@@ -55,9 +82,9 @@ const [count, setCount ] = useState(0);
     )
 }
 
-Counter.propTypes = {
+CounterButton.propTypes = {
     by: PropTypes.number
 }
-Counter.defaultProps = {
+CounterButton.defaultProps = {
     by: 1
 }
