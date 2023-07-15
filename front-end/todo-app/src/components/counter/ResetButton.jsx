@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function ResetButton(){
-    const [count,setCount ] = useState(0);
+export default function ResetButton({numberReset}){
 
-    function resetNumber(){
-        setCount(0);
+
+    const resetNumber = () => {
+        numberReset(0);
+        
     }
 
 
