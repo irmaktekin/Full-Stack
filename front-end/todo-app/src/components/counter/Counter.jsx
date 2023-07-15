@@ -1,6 +1,7 @@
 import './Counter.css';
 import { useState } from 'react';
 import CounterButton from './CounterButton';
+import ResetButton from './ResetButton';
 
 export default function Counter() {
     const [count, setCount ] = useState(0);
@@ -25,7 +26,7 @@ export default function Counter() {
                                 decrementMethod = {decrementCounterParentFunction}/>
         <CounterButton by = {5} incrementCounterParentFunction={incrementCounterParentFunction}
                                 decrementMethod = {decrementCounterParentFunction}/>
-
+        <ResetButton/>
                                 
         </>
 
