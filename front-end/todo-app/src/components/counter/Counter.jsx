@@ -1,5 +1,5 @@
 import './Counter.css';
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 import CounterButton from './CounterButton';
 import ResetButton from './ResetButton';
 
