@@ -1,10 +1,10 @@
 import './App.css';
-import Counter from './components/counter/Counter';
-
+import './components/todo/TodoApp';
+import ToDoApp from './components/todo/TodoApp';
 function App() {
   return (
     <div className="App">
-      <Counter/>
+      <ToDoApp/>
  
       
     </div>
