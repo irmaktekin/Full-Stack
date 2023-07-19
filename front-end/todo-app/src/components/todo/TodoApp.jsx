@@ -4,12 +4,13 @@ import './TodoApp.css';
 
 export default function ToDoApp(){
     return (
-        <div className="TodoApp">ToDo Management Application
+        <div>
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<LoginComponent/>}></Route>
                 <Route path='/login' element={<LoginComponent/>}></Route>
                 <Route path='/welcome' element={<WelcomeComponent/>}></Route>
+                <Route path='*' element={<ErrorComponent/>}></Route>
 
 
 
@@ -40,6 +41,7 @@ function LoginComponent(){
     function handleSubmit(){
         if(username==='irmaktekin'&& password==='dummy'){
             navigate('/welcome');
+        
             setShowSuccessMessage(true);
             setShowErrorMessage(false);
 
@@ -86,7 +88,20 @@ function LoginComponent(){
 function WelcomeComponent(){
     return (
         <div className="Welcome">
-            Welcome Component
+        <h1>Welcome</h1>
+
+        </div>
+
+    )
+}
+
+function ErrorComponent(){
+    return (
+        <div className="ErrorComponent">
+            <h1>We are working really hard!</h1>
+            <div>
+                Apologies for the 404. Reach out to our team at ABC.
+            </div>
         </div>
 
     )
