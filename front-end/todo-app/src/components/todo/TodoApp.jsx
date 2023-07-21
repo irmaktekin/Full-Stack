@@ -5,18 +5,22 @@ import { Link } from 'react-router-dom';
 export default function ToDoApp(){
     return (
         <div>
+        <HeaderComponent/>
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<LoginComponent/>}/>
                 <Route path='/login' element={<LoginComponent/>}/>
                 <Route path='/welcome/:username' element={<WelcomeComponent/>}/>
                 <Route path='/todos' element={<ListTodosComponent/>}/>
+                <Route path='/logout' element={<LogoutComponent/>}/>
                 <Route path='*' element={<ErrorComponent/>}/>
 
 
 
             </Routes>
         </BrowserRouter>
+
+        <FooterComponent/>
 
         
         </div>
@@ -133,6 +137,7 @@ function ListTodosComponent(){
                             <td>Target Date</td>
 
                         </tr>
+                        </thead>
 
                         <tbody>
                             {
@@ -150,8 +155,39 @@ function ListTodosComponent(){
                             }
                             
                         </tbody>
-                    </thead>
                 </table>
+            </div>
+        </div>
+
+    )
+}
+
+
+function HeaderComponent(){
+    return (
+        <div className="header">
+            <div>
+                Header <hr/>
+            </div>
+        </div>
+
+    )
+}
+function FooterComponent(){
+    return (
+        <div className="footer">
+            <div>
+                <hr/> Footer 
+            </div>
+        </div>
+
+    )
+}
+function LogoutComponent(){
+    return (
+        <div className="ErrorComponent">
+            <div>
+                You are logged out.
             </div>
         </div>
 
