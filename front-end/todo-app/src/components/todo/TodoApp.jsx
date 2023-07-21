@@ -7,7 +7,6 @@ import ErrorComponent from './ErrorComponent';
 import WelcomeComponent from './WelcomeComponent';
 import LoginComponent from './LoginComponent';
 import AuthProvider from './security/AuthContext';
-import FooterComponent from './FooterComponent';
 export default function ToDoApp(){
     return (
         <div className='TodoApp'>

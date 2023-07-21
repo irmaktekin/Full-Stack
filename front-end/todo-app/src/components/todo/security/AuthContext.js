@@ -3,24 +3,37 @@ import { createContext,useContext,useState} from "react";
 export const AuthContext = createContext()
 export const useAuth = ()=>useContext(AuthContext)
 
-//put some state in the context
-
 
 //share the context with other components
-
 export default function AuthProvider({children}){
-    const [number, setNumber]=useState(10)
+    //put some state in the context
      
     const [isAuthenticated, setAuthenticated]=useState(false)
+    function login(username,password){
+        if(username==='irmaktekin'&& password==='dummy'){
+            setAuthenticated(true);
+        
+            return true;
 
-    //setInterval(()=>setNumber(number+1), 10000)
-    //const valueToBeShared = {number, isAuthenticated, setAuthenticated}
+
+        }
+        else{
+           setAuthenticated(false);
+           return false;
+
+    }
+
+}
+    function logout(){
+        setAuthenticated(false)
+}
     return(
-        <AuthContext.Provider value={{number, isAuthenticated, setAuthenticated}} >
+        <AuthContext.Provider value={{ isAuthenticated,login,logout}} >
             {children}
         </AuthContext.Provider>
 
     )
 }
+
 
 
