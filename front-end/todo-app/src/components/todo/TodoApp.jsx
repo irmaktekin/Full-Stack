@@ -6,9 +6,12 @@ import ListTodosComponent from './ListTodosComponent';
 import ErrorComponent from './ErrorComponent';
 import WelcomeComponent from './WelcomeComponent';
 import LoginComponent from './LoginComponent';
+import AuthProvider from './security/AuthContext';
+import FooterComponent from './FooterComponent';
 export default function ToDoApp(){
     return (
-        <div>
+        <div className='TodoApp'>
+            <AuthProvider>
         <BrowserRouter>
         <HeaderComponent/>
             <Routes>
@@ -24,6 +27,8 @@ export default function ToDoApp(){
             </Routes>
 
         </BrowserRouter>
+        <FooterComponent></FooterComponent>
+        </AuthProvider>
 
 
         
