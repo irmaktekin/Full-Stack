@@ -27,7 +27,6 @@ export default function ToDoApp(){
             </Routes>
 
         </BrowserRouter>
-        <FooterComponent></FooterComponent>
         </AuthProvider>
 
 
