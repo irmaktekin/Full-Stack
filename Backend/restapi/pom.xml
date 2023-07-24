@@ -8,11 +8,11 @@
 		<version>3.2.0-M1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.irmaktekin.rest.webservices</groupId>
-	<artifactId>restful-web-services</artifactId>
+	<groupId>com.irmaktekin</groupId>
+	<artifactId>restapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>restful-web-services</name>
-	<description>Demo project for Spring Boot</description>
+	<name>restapi</name>
+	<description>Rest Api</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

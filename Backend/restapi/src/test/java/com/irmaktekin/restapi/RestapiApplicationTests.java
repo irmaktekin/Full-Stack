@@ -1,10 +1,10 @@
-package com.irmaktekin.rest.webservices.restfulwebservices;
+package com.irmaktekin.restapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestfulWebServicesApplicationTests {
+class RestapiApplicationTests {
 
 	@Test
 	void contextLoads() {
