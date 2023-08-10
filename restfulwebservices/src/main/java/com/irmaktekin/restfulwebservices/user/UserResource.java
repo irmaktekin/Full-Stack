@@ -1,4 +1,4 @@
-package com.irmaktekin.restfulwebservices.user;
+/*package com.irmaktekin.restfulwebservices.user;
 
 import java.net.URI;
 import java.util.List;
@@ -30,7 +30,7 @@ public class UserResource {
 	public List<User> retrieveAllUsers(){
 		return service.findAll();
 	}
-	
+
 	//GET /users
 
 		@GetMapping(path="/users/{id}")
@@ -66,3 +66,4 @@ public class UserResource {
 		
 
 }
+*/
