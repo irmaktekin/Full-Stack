@@ -1,5 +1,5 @@
 package com.irmaktekin.restfulwebservices.jpa;
-
+/*
 import com.irmaktekin.restfulwebservices.user.User;
 import com.irmaktekin.restfulwebservices.user.UserDaoService;
 import com.irmaktekin.restfulwebservices.user.UserNotFoundException;
@@ -75,3 +75,4 @@ public class UserJpaResource {
 		
 
 }
+*/

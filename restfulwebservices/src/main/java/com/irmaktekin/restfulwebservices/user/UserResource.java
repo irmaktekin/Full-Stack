@@ -1,8 +1,10 @@
-/*package com.irmaktekin.restfulwebservices.user;
+package com.irmaktekin.restfulwebservices.user;
 
 import java.net.URI;
 import java.util.List;
 
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import jakarta.validation.Valid;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 @RestController
 public class UserResource {
 	private UserDaoService service;
@@ -22,8 +27,6 @@ public class UserResource {
 		super();
 		this.service = service;
 	}
-
-
 
 	//GET /users
 	@GetMapping(path="/users")
@@ -34,17 +37,17 @@ public class UserResource {
 	//GET /users
 
 		@GetMapping(path="/users/{id}")
-		public  User retrieveUser(@PathVariable int id){
+		public  EntityModel<User> retrieveUser(@PathVariable int id){
 			User user =  service.findOne(id);
 			if(user == null ) {
 				throw new UserNotFoundException("id:"+id);
 			}
-			
-			return user;
+			EntityModel <User> entityModel = EntityModel.of(user);
+            WebMvcLinkBuilder link = linkTo(methodOn(this.getClass()).retrieveAllUsers());
+            entityModel.add(link.withRel("all-users"));
+			return entityModel;
 		}
-		
-		
-	//Create A User
+
 		@PostMapping("/users")
 		public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
 			User savedUser= service.saveUser(user);
@@ -53,17 +56,11 @@ public class UserResource {
 			return ResponseEntity.created(location).build();
 			
 		}
-	
-	//Delete user 
+
 		@DeleteMapping(path="/users/{id}")
 		public void deleteUser(@PathVariable int id){
 			 service.deleteById(id);
-			
-			
-			
-					
 		}
 		
 
 }
-*/
